@@ -267,19 +267,16 @@ const prices = [
                                 </button>
                             </div>
 
-                            <p>
+                            <p class="py-5">
                                 It is a well established fact that a reader will
                                 be distracted by the readable content of a page
                                 when looking at its layout. The point of using
                                 Lorem Ipsum is that it has a more-or-less normal
                                 distribution of letters,look like readable
                                 English.
+                                
                             </p>
-                            <p>
-                                There are many variations of passages of Lorem
-                                Ipsum available, but the majority have in some
-                                form, by injected humor.
-                            </p>
+                            
                         </div>
                     </div>
                 </main>
@@ -324,8 +321,8 @@ const prices = [
             </div>
             <div>
                 <div class="grid sm:grid-cols-3 grid-cols-1 gap-3 max-w-6xl mx-auto">
-                    <div v-for="price in prices" :key="price.id" class="border p-5 rounded-lg bg-slate-50" :class="{
-                        [`shadow-2xl bg-white`]: price.highlight == true,
+                    <div v-for="price in prices" :key="price.id" class=" p-5 rounded-lg bg-slate-50" :class="{
+                        [`shadow-2xl bg-white border-2`]: price.highlight == true,
                     }">
                         <div class="m-auto flex justify-center py-5">
                             <p class="text-center border-blue-600 rounded-full border-2 py-1 px-5" :class="{
