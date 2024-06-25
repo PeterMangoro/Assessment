@@ -46,4 +46,20 @@ class DashboardController extends Controller
 
         return redirect()->route('dashboard');
     }
+
+    public function storyUpdate(Story $story, Request $request)
+    {
+        $validated_request = $request->validate([
+            'title' => 'required',
+            'detail' => 'required',
+        ]);
+
+        $story->forceFill([
+            'title' => $validated_request['title'],
+            'detail' => $validated_request['detail'],
+
+        ])->save();
+
+        return redirect()->route('dashboard');
+    }
 }

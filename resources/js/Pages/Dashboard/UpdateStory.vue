@@ -11,24 +11,24 @@ import TextInput from '@/Components/TextInput.vue';
 import TextArea from '@/Components/TextArea.vue';
 
 const props = defineProps({
-    landing: Object,
+    story: Object,
 });
 
 const form = useForm({
     _method: 'PUT',
-    title: props.landing.title,
-    detail: props.landing.detail,
+    title: props.story.title,
+    detail: props.story.detail,
     image: null,
 });
 
 const imagePreview = ref(null);
 const imageInput = ref(null);
 
-const updateLandingInformation = () => {
-    
+const updateStoryInformation = () => {
 
-    form.post(route('landing-page.update',props.landing.id), {
-        errorBag: 'updateLandingInformation',
+
+    form.post(route('story-page.update', props.story.id), {
+        errorBag: 'updateStoryInformation',
         preserveScroll: true,
         onSuccess: () => clearImageFileInput(),
     });
@@ -57,8 +57,8 @@ const saveImage = () => {
     if (imageInput.value) {
         form.image = imageInput.value.files[0];
     }
-    form.post(route('image.update', props.landing.image.id), {
-        errorBag: 'updateLandingInformation',
+    form.post(route('image.update', props.story.image.id), {
+        errorBag: 'updateStoryInformation',
         preserveScroll: true,
         onSuccess: () => clearImageFileInput(),
     });
@@ -72,29 +72,29 @@ const clearImageFileInput = () => {
 </script>
 
 <template>
-    <FormSection @submitted="updateLandingInformation">
+    <FormSection @submitted="updateStoryInformation">
         <template #title>
-            CTA Section
+            Story Section
         </template>
 
         <template #description>
-            Update your CTA Section title and description. You can also change the image.
+            Update your Story Section title and description. You can also change the image.
         </template>
 
         <template #form>
-            <!-- Landing Image -->
+            <!-- Story Image -->
             <div class="col-span-6 sm:col-span-4">
-                <!-- Landing Image File Input -->
+                <!-- Story Image File Input -->
                 <input id="image" ref="imageInput" type="file" class="hidden" @change="updateImagePreview">
 
                 <InputLabel for="image" value="Image" />
 
-                <!-- Current Landing Image -->
+                <!-- Current Story Image -->
                 <div v-show="!imagePreview" class="mt-2">
-                    <img :src="landing.image.path" :alt="landing.title" class="rounded h-48  w-48  object-cover">
+                    <img :src="story.image.path" :alt="story.title" class="rounded h-48  w-48  object-cover">
                 </div>
 
-                <!-- New Landing Image Preview -->
+                <!-- New Story Image Preview -->
                 <div v-show="imagePreview" class="mt-2">
                     <span class="block rounded w-48 h-48 bg-cover bg-no-repeat bg-center"
                         :style="'background-image: url(\'' + imagePreview + '\');'" />
@@ -108,7 +108,7 @@ const clearImageFileInput = () => {
                     Saved.
                 </ActionMessage>
 
-                <SecondaryButton v-if="landing.image.path" type="button" class="mt-2 " @click.prevent="saveImage">
+                <SecondaryButton v-if="story.image.path" type="button" class="mt-2 " @click.prevent="saveImage">
                     Save Image
                 </SecondaryButton>
 

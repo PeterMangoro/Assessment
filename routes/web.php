@@ -14,9 +14,10 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
-])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::put('/landing/{landing}', [DashboardController::class, 'landingUpdate'])->name('landing-page.update');
+])->controller(DashboardController::class)->group(function () {
+    Route::get('/dashboard',  'index')->name('dashboard');
+    Route::put('/landing/{landing}',  'landingUpdate')->name('landing-page.update');
+    Route::put('/story/{story}',  'storyUpdate')->name('story-page.update');
 
 });
 
