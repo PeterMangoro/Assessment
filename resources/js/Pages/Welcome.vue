@@ -107,7 +107,7 @@ const items = [
                             </div>
                         </div>
                         <div>
-                            <img class="w-autServiceso rounded-lg" src="/landing-1.png" />
+                            <img class="w-autServiceso rounded-lg" :src="landing.image.path" />
                         </div>
                     </div>
                 </main>
@@ -123,7 +123,7 @@ const items = [
                 <main class="mt-6">
                     <div class="grid gap-6 lg:grid-cols-2 lg:gap-8">
                         <div>
-                            <img class="w-auto rounded-lg" src="/landing-2.png" />
+                            <img class="w-auto rounded-lg" :src="story.image.path" />
                         </div>
                         <div class="my-auto">
                             <h1 class="uppercase">Our Story</h1>
@@ -173,7 +173,7 @@ const items = [
             <div>
                 <div class="grid sm:grid-cols-3 grid-cols-1 gap-3 max-w-6xl mx-auto">
                     <div v-for="service in services" :key="service.id" class="border p-5 rounded">
-                        <img class="rounded-lg w-16" :src="service.icon" />
+                        <img class="rounded-lg w-16" :src="service.image.path" />
                         <p class="py-3 font-bold">{{ service.title }}</p>
                         <p class="text-base text-black/50">
                             {{ service.detail }}

@@ -12,9 +12,9 @@ class WelcomeController extends Controller
 {
     public function index(){
 
-        $landing = Landing::first();
-        $story = Story::first();
-        $services = Service::get();
+        $landing = Landing::with('image')->first();
+        $story = Story::with('image')->first();
+        $services = Service::with('image')->get();
         $prices = Price::with('packages.point')->get();
         $footer = Footer::first();
 
