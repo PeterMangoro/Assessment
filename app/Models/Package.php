@@ -10,13 +10,13 @@ class Package extends Model
 {
     use HasFactory;
 
-    public function points(): BelongsTo
+    public function point(): BelongsTo
     {
-        return $this->belongsTo(Package::class);
+        return $this->belongsTo(Point::class);
     }
 
-    public function prices(): BelongsTo
+    public function price(): BelongsTo
     {
-        return $this->belongsTo(Package::class);
+        return $this->belongsTo(Price::class);
     }
 }
