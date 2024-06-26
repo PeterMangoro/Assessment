@@ -78,4 +78,23 @@ class DashboardController extends Controller
 
         return redirect()->route('dashboard');
     }
+
+    public function priceUpdate(Price $price, Request $request)
+    {
+        $validated_request = $request->validate([
+            'title' => 'required',
+            'detail' => 'required',
+            'price' => 'required','numeric',
+            'points'=>'required','array',
+        ]);
+
+        $price->forceFill([
+            'title' => $validated_request['title'],
+            'detail' => $validated_request['detail'],
+            'price' => $validated_request['price'],
+
+        ])->save();
+
+        return redirect()->route('dashboard');
+    }
 }

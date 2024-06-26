@@ -19,6 +19,7 @@ Route::middleware([
     Route::put('/landing/{landing}',  'landingUpdate')->name('landing-page.update');
     Route::put('/story/{story}',  'storyUpdate')->name('story-page.update');
     Route::put('/service/{service}',  'serviceUpdate')->name('service-page.update');
+    Route::put('/price/{price}',  'priceUpdate')->name('price-page.update');
 
 });
 

@@ -3,6 +3,7 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 import UpdateLanding from '@/Pages/Dashboard/UpdateLanding.vue';
 import UpdateStory from '@/Pages/Dashboard/UpdateStory.vue';
 import UpdateService from '@/Pages/Dashboard/UpdateService.vue';
+import UpdatePricing from '@/Pages/Dashboard/UpdatePricing.vue';
 import SectionBorder from '@/Components/SectionBorder.vue';
 
 defineProps({
@@ -42,6 +43,13 @@ defineProps({
                 <h1 class="text-center font-semibold text-lg dark:text-white pb-5"> Service Section</h1>
                 <div class=" grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <UpdateService v-for="service in services" :key="service.id" :service="service"
+                        class="col-span-1" />
+                </div>
+
+                <SectionBorder />
+                <h1 class="text-center font-semibold text-lg dark:text-white pb-5"> Pricing Section</h1>
+                <div class=" grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <UpdatePricing v-for="price in prices" :key="price.id" :price="price"
                         class="col-span-1" />
                 </div>
             </div>
