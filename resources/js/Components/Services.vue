@@ -2,8 +2,8 @@
 const props = defineProps({
     services: {
         type: Array,
-    }
-})
+    },
+});
 </script>
 <template>
     <div class="text-black bg-white pb-20" id="services">

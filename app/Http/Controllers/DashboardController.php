@@ -21,7 +21,7 @@ class DashboardController extends Controller
         $footer = Footer::first();
 
         return inertia('Dashboard', [
-            
+
             'landing' => $landing,
             'story' => $story,
             'services' => $services,
@@ -31,17 +31,17 @@ class DashboardController extends Controller
         ]);
     }
 
-    public function landingUpdate(Landing $landing,Request $request)
+    public function landingUpdate(Landing $landing, Request $request)
     {
         $validated_request = $request->validate([
-            'title' =>'required',
-            'detail' =>'required',
+            'title' => 'required',
+            'detail' => 'required',
         ]);
 
         $landing->forceFill([
-            'title' =>$validated_request['title'],
-            'detail' =>$validated_request['detail'],
-            
+            'title' => $validated_request['title'],
+            'detail' => $validated_request['detail'],
+
         ])->save();
 
         return redirect()->route('dashboard');
@@ -84,8 +84,8 @@ class DashboardController extends Controller
         $validated_request = $request->validate([
             'title' => 'required',
             'detail' => 'required',
-            'price' => 'required','numeric',
-            'points'=>'required','array',
+            'price' => 'required', 'numeric',
+            'points' => 'required', 'array',
         ]);
 
         $price->forceFill([

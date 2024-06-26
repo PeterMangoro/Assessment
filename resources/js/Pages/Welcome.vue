@@ -53,16 +53,15 @@ const items = [
 <template>
 
     <Head title="Welcome" />
-    <div class="text-white/50 bg-blue-700  ">
-        <div class="relative min-h-screen flex flex-col items-center  selection:bg-[#FF2D20] selection:text-white">
+    <div class="text-white/50 bg-blue-700">
+        <div class="relative min-h-screen flex flex-col items-center selection:bg-[#FF2D20] selection:text-white">
             <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
                 <header class="">
                     <nav class="-mx-3 flex flex-1 justify-start py-5">
                         <div class="grid grid-cols-3">
                             <div class="cols-span-1 flex gap-1 my-auto font-extrabold text-xl">
-                                <Link :href="route('login') ">
+                                <Link :href="route('login')">
                                 <img class="h-10 w-auto" src="/logo.png" />
-
                                 </Link>
                             </div>
                             <div class="cols-span-2">
@@ -71,11 +70,9 @@ const items = [
                                     class="rounded-md px-3 py-2 ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] text-white/80 hover:text-white dark:focus-visible:ring-white">
                                     {{ item.title }}
                                 </smooth-scroll>
-                                
                             </div>
                         </div>
                     </nav>
-
                 </header>
 
                 <main class="mt-6">

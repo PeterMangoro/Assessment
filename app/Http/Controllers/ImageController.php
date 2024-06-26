@@ -11,13 +11,13 @@ class ImageController extends Controller
     {
         $validated_request = $request->validate([
             'image' => 'required',
-            
+
         ]);
 
         $path = $request->file('image')->store('public/images');
 
-       $image->path = str_replace("public", "storage", $path);
-       $image->save();
+        $image->path = str_replace("public", "storage", $path);
+        $image->save();
         return redirect()->route('dashboard');
     }
 }

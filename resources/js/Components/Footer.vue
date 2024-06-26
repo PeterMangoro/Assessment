@@ -2,8 +2,8 @@
 const props = defineProps({
     footer: {
         type: Object,
-    }
-})
+    },
+});
 </script>
 <template>
     <div class="bg-blue-600 p-20 text-white">

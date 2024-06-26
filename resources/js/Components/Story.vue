@@ -2,8 +2,8 @@
 const props = defineProps({
     story: {
         type: Object,
-    }
-})
+    },
+});
 </script>
 
 <template>

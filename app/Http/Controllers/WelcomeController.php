@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Price;
@@ -10,7 +11,8 @@ use Illuminate\Support\Facades\Route;
 
 class WelcomeController extends Controller
 {
-    public function index(){
+    public function index()
+    {
 
         $landing = Landing::with('image')->first();
         $story = Story::with('image')->first();
@@ -26,7 +28,7 @@ class WelcomeController extends Controller
             'services' => $services,
             'prices' => $prices,
             'footer' => $footer
-            
+
         ]);
     }
 }

@@ -1,11 +1,10 @@
-<script setup >
-
+<script setup>
 import { CheckCircleIcon } from "@heroicons/vue/24/outline";
 const props = defineProps({
     prices: {
         type: Array,
-    }
-})
+    },
+});
 </script>
 <template>
     <div class="text-black bg-gray-100 pb-20" id="pricing">

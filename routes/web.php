@@ -6,9 +6,7 @@ use App\Http\Controllers\WelcomeController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [WelcomeController::class,'index'])->name('home');
-
-
+Route::get('/', [WelcomeController::class, 'index'])->name('home');
 
 Route::middleware([
     'auth:sanctum',
@@ -21,8 +19,6 @@ Route::middleware([
     Route::put('/service/{service}',  'serviceUpdate')->name('service-page.update');
     Route::put('/price/{price}',  'priceUpdate')->name('price-page.update');
     Route::put('/footer/{footer}',  'footerUpdate')->name('footer-page.update');
-
 });
 
 Route::put('/image/{image}', [ImageController::class, 'update'])->name('image.update');
-
