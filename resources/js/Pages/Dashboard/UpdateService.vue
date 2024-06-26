@@ -11,24 +11,24 @@ import TextInput from '@/Components/TextInput.vue';
 import TextArea from '@/Components/TextArea.vue';
 
 const props = defineProps({
-    landing: Object,
+    service: Object,
 });
 
 const form = useForm({
     _method: 'PUT',
-    title: props.landing.title,
-    detail: props.landing.detail,
+    title: props.service.title,
+    detail: props.service.detail,
     image: null,
 });
 
 const imagePreview = ref(null);
 const imageInput = ref(null);
 
-const updateLandingInformation = () => {
-    
+const updateServiceInformation = () => {
 
-    form.post(route('landing-page.update',props.landing.id), {
-        errorBag: 'updateLandingInformation',
+
+    form.post(route('service-page.update', props.service.id), {
+        errorBag: 'updateServiceInformation',
         preserveScroll: true,
         onSuccess: () => clearImageFileInput(),
     });
@@ -57,8 +57,8 @@ const saveImage = () => {
     if (imageInput.value) {
         form.image = imageInput.value.files[0];
     }
-    form.post(route('image.update', props.landing.image.id), {
-        errorBag: 'updateLandingInformation',
+    form.post(route('image.update', props.service.image.id), {
+        errorBag: 'updateServiceInformation',
         preserveScroll: true,
         onSuccess: () => clearImageFileInput(),
     });
@@ -72,31 +72,25 @@ const clearImageFileInput = () => {
 </script>
 
 <template>
-    <FormSection @submitted="updateLandingInformation">
-        <template #title>
-            CTA Section
-        </template>
-
-        <template #description>
-            Update your CTA Section title and description. You can also change the image.
-        </template>
+    <FormSection @submitted="updateServiceInformation">
+        
 
         <template #form>
-            <!-- Landing Image -->
+            <!-- Service Image -->
             <div class="col-span-6 sm:col-span-4">
-                <!-- Landing Image File Input -->
+                <!-- Service Image File Input -->
                 <input id="image" ref="imageInput" type="file" class="hidden" @change="updateImagePreview">
 
                 <InputLabel for="image" value="Image" />
 
-                <!-- Current Landing Image -->
+                <!-- Current Service Image -->
                 <div v-show="!imagePreview" class="mt-2">
-                    <img :src="landing.image.path" :alt="landing.title" class="rounded h-48  w-48  object-cover">
+                    <img :src="service.image.path" :alt="service.title" class="rounded-full h-20  w-20  object-cover">
                 </div>
 
-                <!-- New Landing Image Preview -->
+                <!-- New Service Image Preview -->
                 <div v-show="imagePreview" class="mt-2">
-                    <span class="block rounded w-48 h-48 bg-cover bg-no-repeat bg-center"
+                    <span class="block rounded-full w-20 h-20 bg-cover bg-no-repeat bg-center"
                         :style="'background-image: url(\'' + imagePreview + '\');'" />
                 </div>
 
@@ -108,7 +102,7 @@ const clearImageFileInput = () => {
                     Saved.
                 </ActionMessage>
 
-                <SecondaryButton v-if="landing.image.path" type="button" class="mt-2 " @click.prevent="saveImage">
+                <SecondaryButton v-if="service.image.path" type="button" class="mt-2 " @click.prevent="saveImage">
                     Save Image
                 </SecondaryButton>
 

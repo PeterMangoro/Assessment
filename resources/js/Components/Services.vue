@@ -16,7 +16,7 @@ const props = defineProps({
             <div>
                 <div class="grid sm:grid-cols-3 grid-cols-1 gap-3 max-w-6xl mx-auto">
                     <div v-for="service in services" :key="service.id" class="border p-5 rounded">
-                        <img class="rounded-lg w-16" :src="service.image.path" />
+                        <img class="rounded-full h-16 w-16 bg-cover bg-no-repeat bg-center" :src="service.image.path" />
                         <p class="py-3 font-bold">{{ service.title }}</p>
                         <p class="text-base text-black/50">
                             {{ service.detail }}

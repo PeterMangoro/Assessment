@@ -2,6 +2,7 @@
 import AppLayout from '@/Layouts/AppLayout.vue';
 import UpdateLanding from '@/Pages/Dashboard/UpdateLanding.vue';
 import UpdateStory from '@/Pages/Dashboard/UpdateStory.vue';
+import UpdateService from '@/Pages/Dashboard/UpdateService.vue';
 import SectionBorder from '@/Components/SectionBorder.vue';
 
 defineProps({
@@ -30,12 +31,18 @@ defineProps({
 
         <div class="py-12">
             <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-                <div class=" overflow-hidden shadow-xl sm:rounded-lg ">
+                <div>
                     <UpdateLanding :landing="landing" />
                 </div>
                 <SectionBorder />
-                <div class=" overflow-hidden shadow-xl sm:rounded-lg ">
+                <div>
                     <UpdateStory :story="story" />
+                </div>
+                <SectionBorder />
+                <h1 class="text-center font-semibold text-lg dark:text-white pb-5"> Service Section</h1>
+                <div class=" grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <UpdateService v-for="service in services" :key="service.id" :service="service"
+                        class="col-span-1" />
                 </div>
             </div>
         </div>

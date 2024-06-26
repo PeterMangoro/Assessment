@@ -18,6 +18,7 @@ Route::middleware([
     Route::get('/dashboard',  'index')->name('dashboard');
     Route::put('/landing/{landing}',  'landingUpdate')->name('landing-page.update');
     Route::put('/story/{story}',  'storyUpdate')->name('story-page.update');
+    Route::put('/service/{service}',  'serviceUpdate')->name('service-page.update');
 
 });
 

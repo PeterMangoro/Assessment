@@ -62,4 +62,20 @@ class DashboardController extends Controller
 
         return redirect()->route('dashboard');
     }
+
+    public function serviceUpdate(Service $service, Request $request)
+    {
+        $validated_request = $request->validate([
+            'title' => 'required',
+            'detail' => 'required',
+        ]);
+
+        $service->forceFill([
+            'title' => $validated_request['title'],
+            'detail' => $validated_request['detail'],
+
+        ])->save();
+
+        return redirect()->route('dashboard');
+    }
 }
