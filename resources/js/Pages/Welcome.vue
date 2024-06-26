@@ -54,34 +54,29 @@ const items = [
 <template>
 
     <Head title="Welcome" />
-    <div class="text-white/80 bg-blue-700 dark:text-white/50 ">
-        <div
-            class="relative min-h-screen flex flex-col items-center  selection:bg-[#FF2D20] selection:text-white">
+    <div class="text-white/50 bg-blue-700  ">
+        <div class="relative min-h-screen flex flex-col items-center  selection:bg-[#FF2D20] selection:text-white">
             <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
                 <header class="">
                     <nav class="-mx-3 flex flex-1 justify-start py-5">
                         <div class="grid grid-cols-3">
                             <div class="cols-span-1 flex gap-1 my-auto font-extrabold text-xl">
+                                <Link :href="route('login') ">
                                 <img class="h-10 w-auto" src="/logo.png" />
+
+                                </Link>
                             </div>
                             <div class="cols-span-2">
                                 <smooth-scroll v-for="item in items" key="item.id" :href="item.href"
                                     v-smooth-scroll="{ duration: 10000 }"
-                                    class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white/80 dark:hover:text-white dark:focus-visible:ring-white">
+                                    class="rounded-md px-3 py-2 ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] text-white/80 hover:text-white dark:focus-visible:ring-white">
                                     {{ item.title }}
                                 </smooth-scroll>
-                                <Link v-if="$page.props.auth.user" :href="route('dashboard')"
-                                    class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white/80 dark:hover:text-white dark:focus-visible:ring-white">
-                                Dashboard
-                                </Link>
-                                <Link v-else :href="route('login')"
-                                    class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white/80 dark:hover:text-white dark:focus-visible:ring-white">
-                                Login
-                                </Link>
+                                
                             </div>
                         </div>
                     </nav>
-                    
+
                 </header>
 
                 <main class="mt-6">

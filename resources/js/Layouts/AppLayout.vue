@@ -42,38 +42,41 @@ const items = [
         <Banner />
 
         <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
-            <nav class="text-white/80 bg-blue-700 dark:text-white/50 pb-5">
+            <nav class=" bg-blue-700 text-white/50 pb-5">
                 <!-- Primary Navigation Menu -->
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="flex justify-between h-16">
                         <div class="flex">
                             <!-- Logo -->
                             <header class="">
-                                <nav class="-mx-3 flex flex-1 justify-center py-5 gap-2">
+                                <nav class="-mx-3 flex flex-1 justify-center py-5 gap-2 ">
 
 
                                     <div class="cols-span-1 flex gap-1 my-auto font-extrabold text-xl">
+                                        <Link :href="route('home') ">
                                         <img class="h-10 w-auto" src="/logo.png" />
+
+                                        </Link>
 
                                     </div>
                                     <div>
-                                        <NavLink :href="route('home')" :active="route().current('home') ">
+                                        <NavLink
+                                            class="rounded-md px-3 py-2 ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] text-white/80 hover:text-white dark:focus-visible:ring-white"
+                                            :href="route('home')" :active="route().current('home') ">
                                             Home
                                         </NavLink>
                                     </div>
                                     <div>
-                                        <smooth-scroll v-for="item in items" key="item.id" :href="item.href"
+                                        <smooth-scroll
+                                            class="rounded-md px-3 py-2 ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] text-white/80 hover:text-white dark:focus-visible:ring-white"
+                                            v-for="item in items" key="item.id" :href="item.href"
                                             v-smooth-scroll="{ duration: 10000 }">
                                             {{ item.title }}
                                         </smooth-scroll>
 
                                     </div>
-                                    
-                                    <div>
-                                        <NavLink class="hidden sm:flex" :href="route('dashboard')" :active="route().current('dashboard') ">
-                                            Dashboard
-                                        </NavLink>
-                                    </div>
+
+
 
                                 </nav>
                             </header>

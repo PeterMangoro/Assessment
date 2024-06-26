@@ -10,12 +10,12 @@ const props = defineProps({
 <template>
     <div class="grid gap-6 lg:grid-cols-2 lg:gap-8">
         <div class="my-auto">
-            <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-gray-100">
+            <h1 class="text-4xl font-extrabold tracking-tight text-gray-100">
                 <span class="block xl:inline">{{
                     landing.title
                 }}</span>
             </h1>
-            <p class="mt-3 text-base text-gray-500 dark:text-gray-400">
+            <p class="mt-3 text-base text-gray-400">
                 {{ landing.detail }}
             </p>
 

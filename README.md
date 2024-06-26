@@ -11,11 +11,13 @@
 - run **composer install && npm install && cp .env.example .env && php artisan key:generate && php artisan storage:link**
 - run **php artisan serve**
 - Open another command line and run **npm run dev**
-- run **php artisan migrate --seed**
+- Open another command line run **php artisan migrate --seed**
 - visit **[http://127.0.0.1:8000](http://127.0.0.1:8000/)** to access the App
 
+-You can switch between dashboard and welcome page by clicking the logo
+
 ### Accessing as Admin
-- navigate to the **[Login](http://127.0.0.1:8000/login)** page
+- navigate to the **[Login](http://127.0.0.1:8000/login)** page by clicking the logo
 - login with the following credentials
 ==Email== : admin@user.com
 ==Password== :password
