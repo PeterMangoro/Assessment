@@ -1,3 +1,7 @@
+## About
+- This Application was made with Laravel+Inertia 
+- Views can be found in resources/js/Pages
+- Styling was Taliwind based.
 # How to Deploy
 
 
@@ -17,10 +21,13 @@
 -You can switch between dashboard and welcome page by clicking the logo
 
 ### Accessing as Admin
-- navigate to the **[Login](http://127.0.0.1:8000/login)** page by clicking the logo
+- navigate to the **[Login](http://127.0.0.1:8000/login)** page by clicking the logo or clicking the **Get Started** Button in the CTA
 - login with the following credentials
 ==Email== : admin@user.com
 ==Password== :password
+
+
+
 
 
 
