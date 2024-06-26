@@ -6,7 +6,6 @@ import Story from "@/Components/Story.vue";
 import Services from "@/Components/Services.vue";
 import Prices from "@/Components/Prices.vue";
 import Footer from "@/Components/Footer.vue";
-import AppLayout from '@/Layouts/AppLayout.vue';
 
 defineProps({
     canLogin: {

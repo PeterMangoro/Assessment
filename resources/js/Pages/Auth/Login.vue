@@ -7,7 +7,6 @@ import InputError from '@/Components/InputError.vue';
 import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
-
 defineProps({
     canResetPassword: Boolean,
     status: String,
@@ -30,8 +29,31 @@ const submit = () => {
 </script>
 
 <template>
+
     <Head title="Log in" />
 
+    <div class="text-white/50 bg-blue-700  ">
+        <div class="relative  flex flex-col items-center  selection:bg-[#FF2D20] selection:text-white">
+            <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
+                <header class="">
+                    <nav class="-mx-3 flex flex-1 justify-start py-5">
+                        <div class="grid grid-cols-3">
+                            <div class="cols-span-1 flex gap-1 my-auto font-extrabold text-xl">
+                                <Link :href="route('home')">
+                                <img class="h-10 w-auto" src="/logo.png" />
+
+                                </Link>
+                            </div>
+                           
+                        </div>
+                    </nav>
+
+                </header>
+
+               
+            </div>
+        </div>
+    </div>
     <AuthenticationCard>
         <template #logo>
             <AuthenticationCardLogo />
@@ -44,28 +66,15 @@ const submit = () => {
         <form @submit.prevent="submit">
             <div>
                 <InputLabel for="email" value="Email" />
-                <TextInput
-                    id="email"
-                    v-model="form.email"
-                    type="email"
-                    class="mt-1 block w-full"
-                    required
-                    autofocus
-                    autocomplete="username"
-                />
+                <TextInput id="email" v-model="form.email" type="email" class="mt-1 block w-full" required autofocus
+                    autocomplete="username" />
                 <InputError class="mt-2" :message="form.errors.email" />
             </div>
 
             <div class="mt-4">
                 <InputLabel for="password" value="Password" />
-                <TextInput
-                    id="password"
-                    v-model="form.password"
-                    type="password"
-                    class="mt-1 block w-full"
-                    required
-                    autocomplete="current-password"
-                />
+                <TextInput id="password" v-model="form.password" type="password" class="mt-1 block w-full" required
+                    autocomplete="current-password" />
                 <InputError class="mt-2" :message="form.errors.password" />
             </div>
 
@@ -77,8 +86,9 @@ const submit = () => {
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
-                    Forgot your password?
+                <Link v-if="canResetPassword" :href="route('password.request')"
+                    class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+                Forgot your password?
                 </Link>
 
                 <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
@@ -87,4 +97,6 @@ const submit = () => {
             </div>
         </form>
     </AuthenticationCard>
+
+
 </template>
